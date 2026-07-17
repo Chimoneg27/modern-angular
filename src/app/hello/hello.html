@@ -1,1 +1,10 @@
 <p>hello works! and welcome to angular</p>
+<!-- This is what the user sees -->
+
+<h1 class="text-3xl">{{ title }}</h1>
+
+<button [disabled]="isDisabled" (click)="onClick()" class="border-solid bg-pink-200 border-black border-2 m-3 p-2">Click me</button>
+
+<h2 class="text-2xl">{{ age() }}</h2>
+
+<button class="border-solid bg-pink-200 border-black border-2 m-3 p-2" (click)="increment()">Increase my age</button>
