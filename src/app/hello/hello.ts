@@ -1,4 +1,4 @@
-import { Component, computed, signal, Signal } from '@angular/core';
+import { Component, computed, effect, signal, Signal } from '@angular/core';
 // this is where we define behavior
 @Component({
   selector: 'app-hello', // basically a tag
@@ -9,18 +9,22 @@ import { Component, computed, signal, Signal } from '@angular/core';
 export class Hello {
   protected title: string = 'Welcome to Modern Angular!';
 
-  protected doubleCount = computed(() => this.count() * 2) // depends on count; this is the power of computed signals
+  protected doubleCount = computed(() => this.count() * 2); // depends on count; this is the power of computed signals
+
+  private readonly countLog = effect((): void => {
+    console.log('Count changed', this.count())
+  })
 
   increment(): void {
     this.count.update((value) => value + 1);
   }
 
   decrement(): void {
-    this.count.update((val) => val-1);
+    this.count.update((val) => val - 1);
   }
 
   reset(): void {
-    this.count.set(0)
+    this.count.set(0);
   }
 
   protected isDisabled = false;
