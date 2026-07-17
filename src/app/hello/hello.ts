@@ -1,4 +1,4 @@
-import { Component, signal, Signal } from '@angular/core';
+import { Component, computed, signal, Signal } from '@angular/core';
 // this is where we define behavior
 @Component({
   selector: 'app-hello', // basically a tag
@@ -8,6 +8,8 @@ import { Component, signal, Signal } from '@angular/core';
 })
 export class Hello {
   protected title: string = 'Welcome to Modern Angular!';
+
+  protected doubleCount = computed(() => this.count() * 2) // depends on count; this is the power of computed signals
 
   increment(): void {
     this.count.update((value) => value + 1);
