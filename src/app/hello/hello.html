@@ -3,8 +3,22 @@
 
 <h1 class="text-3xl">{{ title }}</h1>
 
-<button [disabled]="isDisabled" (click)="onClick()" class="border-solid bg-pink-200 border-black border-2 m-3 p-2">Click me</button>
+<button
+  [disabled]="isDisabled"
+  (click)="onClick()"
+  class="border-solid bg-pink-200 border-black border-2 m-3 p-2"
+>
+  Click me
+</button>
 
-<h2 class="text-2xl">{{ age() }}</h2>
+<h2 class="text-2xl">{{ count() }}</h2>
 
-<button class="border-solid bg-pink-200 border-black border-2 m-3 p-2" (click)="increment()">Increase my age</button>
+<button class="border-solid bg-pink-200 border-black border-2 m-3 p-2" (click)="increment()">
+  Increase my cars
+</button>
+<button class="border-solid bg-pink-200 border-black border-2 p-2" (click)="decrement()">
+  decrease my cars
+</button>
+<button class="border-solid bg-pink-200 border-black border-2 p-2" (click)="reset()">
+  reset my cars
+</button>

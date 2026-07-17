@@ -7,12 +7,18 @@ import { Component, signal, Signal } from '@angular/core';
   styleUrl: './hello.css',
 })
 export class Hello {
-  protected title:string = 'Welcome to Modern Angular!'
-
-  protected age = signal(0);
+  protected title: string = 'Welcome to Modern Angular!';
 
   increment(): void {
-    this.age.update(value => value + 1)
+    this.count.update((value) => value + 1);
+  }
+
+  decrement(): void {
+    this.count.update((val) => val-1);
+  }
+
+  reset(): void {
+    this.count.set(0)
   }
 
   protected isDisabled = false;
@@ -20,4 +26,6 @@ export class Hello {
     console.log('Button clicked');
     this.isDisabled = !this.isDisabled;
   }
+
+  protected count = signal(0);
 }
