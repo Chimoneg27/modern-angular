@@ -64,4 +64,8 @@ export class ProductsGrid {
   protected clearSearch() {
     this.searchTerm.set('');
   }
+
+  protected onAddToCart(product: Product): void {
+    console.log('Added to cart', product.name)
+  }
 }

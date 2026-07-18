@@ -7,12 +7,12 @@
 
   <div class="grid gap-4 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]">
     @for (product of filteredProducts(); track product.id) {
-      <app-product-card [product]="product" />
+    <app-product-card [product]="product" (addToCart)="onAddToCart($event)"/>
     } @empty {
-      <div class="col-span-full flex flex-col items-center justify-center py-16 px-8 text-center">
-        <mat-icon class="text-[4rem] w-16 h-16 text-(--mat-sys-outline) mb-4">inventory_3</mat-icon>
-        <h3 class="m-0 mb-2 text-(--mat-sys-on-surface)">No products match your search</h3>
-      </div>
+    <div class="col-span-full flex flex-col items-center justify-center py-16 px-8 text-center">
+      <mat-icon class="text-[4rem] w-16 h-16 text-(--mat-sys-outline) mb-4">inventory_3</mat-icon>
+      <h3 class="m-0 mb-2 text-(--mat-sys-on-surface)">No products match your search</h3>
+    </div>
     }
   </div>
 </div>
