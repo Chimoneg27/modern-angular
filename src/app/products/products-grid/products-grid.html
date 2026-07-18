@@ -1,5 +1,12 @@
-<div class="products-container">
-  <p class="m-3">Total products: {{ products().length }}</p>
+<div class="grid gap-1">
+
+  <mat-form-field appearance="outline">
+    <mat-label class="m-0 text-(--mat-sys-on-surface-variant)">Search products</mat-label>
+    <input matInput [(ngModel)]="searchTerm" class="block w-full" placeholder="Search..." />
+  </mat-form-field>
+
+  <p class="m-1 text-black">Search Term: {{ searchTerm() }}</p>
+
 
   <div class="grid gap-4 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]">
     @for (product of products(); track product.id) {
